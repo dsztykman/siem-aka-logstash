@@ -1,5 +1,5 @@
 # Siem-aka-logstash
-## [Logstash](https://www.elastic.co/guide/en/logstash/6.2/index.html) Image for [Akamai SIEM connector](https://developer.akamai.com/api/luna/siem/overview.html)
+## [Logstash](https://www.elastic.co/guide/en/logstash/6.2/index.html) [Docker](https://www.elastic.co/guide/en/logstash/current/docker.html) Image for [Akamai SIEM connector](https://developer.akamai.com/api/luna/siem/overview.html)
 
 To use it create an env file which will contain all the variables required.
 You should setup the following variables:
@@ -25,4 +25,4 @@ ENV ES_URL "elasticsearch:9200"
 ENV ES_INDEX ""
 ```
 
-In this image we're storing the offset information into consul which allows multiple logstash to fetch data from Akamai
+In this image we're storing the offset information into [consul](https://www.consul.io/) a distributed key value store which allows multiple logstash to fetch data from Akamai
