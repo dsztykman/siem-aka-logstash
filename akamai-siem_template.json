@@ -1,0 +1,142 @@
+{
+    "template": "*akamai-siem-*",
+    "settings": {
+        "number_of_shards": 4,
+        "number_of_replicas": 1,
+        "index.mapping.ignore_malformed": false
+    },
+    "mappings": {
+        "akamai-siem": {
+            "properties": {
+                "geo": {
+                    "type": "object",
+                    "properties": {
+                        "continent": {
+                            "type": "keyword"
+                        },
+                        "country": {
+                            "type": "keyword"
+                        },
+                        "regionCode": {
+                            "type": "keyword"
+                        },
+                        "city": {
+                            "type": "keyword"
+                        },
+                        "asn": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "@timestamp": {
+                    "type": "date"
+                },
+                "httpMessage": {
+                    "type": "object",
+                    "properties": {
+                        "path": {
+                            "type": "keyword"
+                        },
+                        "protocol": {
+                            "type": "keyword"
+                        },
+                        "requestHeaders": {
+                            "type": "keyword"
+                        },
+                        "responseHeaders": {
+                            "type": "keyword"
+                        },
+                        "method": {
+                            "type": "keyword"
+                        },
+                        "port": {
+                            "type": "short"
+                        },
+                        "bytes": {
+                            "type": "integer"
+                        },
+                        "requestId": {
+                            "type": "keyword"
+                        },
+                        "start": {
+                            "type": "integer"
+                        },
+                        "host": {
+                            "type": "keyword"
+                        },
+                        "status": {
+                            "type": "short"
+                        }
+                    }
+                },
+                "@version": {
+                    "type": "short"
+                },
+                "format": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "attackData": {
+                    "type": "object",
+                    "properties": {
+                        "policyId": {
+                            "type": "keyword"
+                        },
+                        "configId": {
+                            "type": "integer"
+                        },
+                        "clientIP": {
+                            "type": "ip"
+                        },
+                        "rules": {
+                            "type": "object",
+                            "properties": {
+                                "ruleTag": {
+                                    "type": "keyword"
+                                },
+                                "ruleAction": {
+                                    "type": "keyword"
+                                },
+                                "ruleSelector": {
+                                    "type": "keyword"
+                                },
+                                "ruleVersion": {
+                                    "type": "short"
+                                },
+                                "rule": {
+                                    "type": "keyword"
+                                },
+                                "ruleMessage": {
+                                    "type": "keyword"
+                                },
+                                "ruleData": {
+                                    "type": "keyword"
+                                }
+                            }
+                        },
+                        "clientReputation": {
+                            "type": "object",
+                            "properties": {
+                                "WEBATCK": {
+                                    "type": "short"
+                                },
+                                "SCANTL": {
+                                    "type": "short"
+                                },
+                                "WEBSCRP": {
+                                    "type": "short"
+                                },
+                                "ID": {
+                                    "type": "ip"
+                                },
+                                "DOSATCK": {
+                                    "type": "short"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
